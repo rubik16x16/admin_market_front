@@ -1,0 +1,22 @@
+version: "2.4"
+services:
+
+    front:
+        container_name: admin_market_front
+        build:
+            context: .
+            dockerfile: Dockerfile.front
+        image: admin_market_front
+        working_dir: /app
+        ports:
+            - "8000:8000"
+        tty: true
+        command: sh
+        volumes:
+            - .:/app
+        networks:
+            - app
+
+networks:
+    app:
+        driver: bridge
